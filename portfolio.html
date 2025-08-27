@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT3 - [Votre Nom]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+
+        /* Navigation Latérale */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-white);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .sidebar-header h2 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-header p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .nav-link.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .nav-link i {
+            margin-right: 0.75rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Contenu Principal */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sections Compétences */
+        .competence-overview {
+            background: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .competences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .competence-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .competence-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .competence-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .competence-card .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section Détail Compétence */
+        .competence-detail {
+            background: var(--bg-white);
+        }
+
+        .detail-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab:hover {
+            color: var(--primary-color);
+        }
+
+        .tab.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .traces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .trace-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .trace-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .trace-item .date {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .analyse-box {
+            background: linear-gradient(135deg, var(--bg-light), white);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .analyse-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .progress-bar {
+            background: var(--border-color);
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+            transition: width 1s ease;
+            animation: progressAnimation 2s ease;
+        }
+
+        @keyframes progressAnimation {
+            from { width: 0; }
+        }
+
+        /* Bouton Menu Mobile */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1100;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1.25rem;
+        }
+
+        /* Mode Présentation */
+        .presentation-mode {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 999;
+        }
+
+        .presentation-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .presentation-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border: 3px solid white;
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            left: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            right: -10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                margin-left: 0 !important;
+            }
+
+            .timeline-item::before {
+                left: 20px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .competences-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations supplémentaires */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .slide-in-right {
+            transform: translateX(50px);
+            opacity: 0;
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Badges de niveau */
+        .level-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--success-color), #059669);
+            color: white;
+            border-radius: 2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Boutons d'action */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Latérale -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Portfolio BUT3</h2>
+            <p>Soutenance S6 - 2024</p>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#hero" class="nav-link active">
+                    <i>🏠</i>
+                    <span>Accueil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#overview" class="nav-link">
+                    <i>📊</i>
+                    <span>Vue d'ensemble</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#comp1" class="nav-link">
+                    <i>💻</i>
+                    <span>Compétence 1</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#comp2" class="nav-link">
+                    <i>🔧</i>
+                    <span>Compétence 2</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#comp3" class="nav-link">
+                    <i>🚀</i>
+                    <span>Compétence 3</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#conclusion" class="nav-link">
+                    <i>🎯</i>
+                    <span>Conclusion</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Bouton Menu Mobile -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Contenu Principal -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="section hero">
+            <div class="hero-content">
+                <h1>Salemkour Rayane</h1>
+                <p class="hero-subtitle">Étudiant BUT3 Informatique</p>
+                <p style="font-size: 1.125rem; margin-top: 1rem; opacity: 0.9;">
+                    Portfolio de compétences pour la soutenance du semestre 6
+                </p>
+                <div class="hero-info">
+                    <div class="info-item">
+                        <h3>3</h3>
+                        <p>Compétences</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>15+</h3>
+                        <p>Projets réalisés</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>6</h3>
+                        <p>Semestres</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vue d'ensemble des compétences -->
+        <section id="overview" class="section competence-overview">
+            <div class="section-header">
+                <h2>Vue d'ensemble des compétences</h2>
+                <p>Synthèse de mon parcours et de mes acquis en BUT3 Informatique</p>
+            </div>
+            <div class="competences-grid">
+                <div class="competence-card" onclick="scrollToSection('comp1')">
+                    <h3>📱 Compétence 1 : Réaliser</h3>
+                    <p>Développer des applications informatiques simples</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="badge">Développement</span>
+                        <span class="badge">Tests</span>
+                        <span class="badge">Documentation</span>
+                    </div>
+                    <div class="progress-bar" style="margin-top: 1.5rem;">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                    <small style="color: var(--text-light); margin-top: 0.5rem; display: block;">Niveau: Avancé</small>
+                </div>
+
+                <div class="competence-card" onclick="scrollToSection('comp2')">
+                    <h3>🔧 Compétence 2 : Optimiser</h3>
+                    <p>Appliquer des approches de la programmation pour optimiser les solutions</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="badge">Algorithmique</span>
+                        <span class="badge">Performance</span>
+                        <span class="badge">Qualité</span>
+                    </div>
+                    <div class="progress-bar" style="margin-top: 1.5rem;">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                    <small style="color: var(--text-light); margin-top: 0.5rem; display: block;">Niveau: Avancé</small>
+                </div>
+
+                <div class="competence-card" onclick="scrollToSection('comp3')">
+                    <h3>🚀 Compétence 3 : Administrer</h3>
+                    <p>Installer, configurer, mettre à disposition et maintenir des infrastructures</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="badge">DevOps</span>
+                        <span class="badge">Cloud</span>
+                        <span class="badge">Sécurité</span>
+                    </div>
+                    <div class="progress-bar" style="margin-top: 1.5rem;">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                    <small style="color: var(--text-light); margin-top: 0.5rem; display: block;">Niveau: Maîtrisé</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétence 1 Détail -->
+        <section id="comp1" class="section competence-detail">
+            <div class="detail-content">
+                <div class="section-header">
+                    <h2>Compétence 1 : Réaliser</h2>
+                    <p>Développer des applications informatiques simples</p>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(event, 'comp1-traces')">Traces</button>
+                    <button class="tab" onclick="switchTab(event, 'comp1-preuves')">Preuves</button>
+                    <button class="tab" onclick="switchTab(event, 'comp1-analyse')">Analyse Réflexive</button>
+                </div>
+
+                <div id="comp1-traces" class="tab-content active">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Traces d'acquisition</h3>
+                    <div class="traces-grid">
+                        <div class="trace-item">
+                            <h4>🌐 Application Web E-commerce</h4>
+                            <p class="date">Septembre 2023 - Décembre 2023</p>
+                            <p>Développement d'une plateforme e-commerce complète avec React et Node.js, intégrant paiement sécurisé et gestion des stocks.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Maîtrisé
+                            </div>
+                        </div>
+                        <div class="trace-item">
+                            <h4>📱 Application Mobile Cross-Platform</h4>
+                            <p class="date">Janvier 2024 - Mars 2024</p>
+                            <p>Création d'une application mobile avec React Native pour la gestion de tâches collaboratives en temps réel.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Maîtrisé
+                            </div>
+                        </div>
+                        <div class="trace-item">
+                            <h4>🎮 Jeu Web Multijoueur</h4>
+                            <p class="date">Mars 2024 - Mai 2024</p>
+                            <p>Développement d'un jeu en ligne temps réel utilisant WebSockets et Canvas API.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Avancé
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="comp1-preuves" class="tab-content">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Preuves d'acquisition</h3>
+                    <div class="analyse-box">
+                        <h4>📊 Métriques de performance</h hostile>
+                        <ul style="margin-top: 1rem; line-height: 2;">
+                            <li>✅ 100% de tests unitaires passés sur tous les projets</li>
+                            <li>✅ Code coverage > 85% sur l'ensemble des applications</li>
+                            <li>✅ Score Lighthouse > 95/100 pour les applications web</li>
+                            <li>✅ Respect des normes W3C et WCAG 2.1 niveau AA</li>
+                        </ul>
+                    </div>
+                    <div class="analyse-box" style="margin-top: 1.5rem;">
+                        <h4>🏆 Reconnaissances</h4>
+                        <ul style="margin-top: 1rem; line-height: 2;">
+                            <li>🥇 1er prix Hackathon universitaire 2024</li>
+                            <li>📈 Note de 18/20 au projet intégrateur S5</li>
+                            <li>💼 Stage validé avec mention "Excellent"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="comp1-analyse" class="tab-content">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Analyse Réflexive</h3>
+                    <div class="analyse-box">
+                        <h4>🎯 Apprentissages critiques maîtrisés</h4>
+                        <p style="margin-top: 1rem;">
+                            Au cours de ces trois années, j'ai développé une approche méthodique du développement logiciel. 
+                            La progression de projets simples vers des architectures complexes m'a permis de comprendre 
+                            l'importance de la planification et de la documentation.
+                        </p>
+                        <p style="margin-top: 1rem;">
+                            <strong>Points forts identifiés :</strong> Capacité d'adaptation aux nouvelles technologies, 
+                            rigueur dans l'écriture du code, créativité dans la résolution de problèmes.
+                        </p>
+                        <p style="margin-top: 1rem;">
+                            <strong>Axes d'amélioration :</strong> Approfondissement des patterns de conception avancés, 
+                            exploration des architectures microservices.
+                        </p>
+                    </div>
+                    <div class="timeline" style="margin-top: 3rem;">
+                        <div class="timeline-item">
+                            <h4>S1-S2 : Fondamentaux</h4>
+                            <p>Acquisition des bases de la programmation et des concepts algorithmiques</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>S3-S4 : Consolidation</h4>
+                            <p>Développement d'applications complètes et travail en équipe</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>S5-S6 : Expertise</h4>
+                            <p>Maîtrise des architectures complexes et des méthodologies avancées</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétence 2 Détail -->
+        <section id="comp2" class="section competence-detail" style="background: var(--bg-light);">
+            <div class="detail-content">
+                <div class="section-header">
+                    <h2>Compétence 2 : Optimiser</h2>
+                    <p>Appliquer des approches de la programmation pour optimiser les solutions</p>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(event, 'comp2-traces')">Traces</button>
+                    <button class="tab" onclick="switchTab(event, 'comp2-preuves')">Preuves</button>
+                    <button class="tab" onclick="switchTab(event, 'comp2-analyse')">Analyse Réflexive</button>
+                </div>
+
+                <div id="comp2-traces" class="tab-content active">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Traces d'acquisition</h3>
+                    <div class="traces-grid">
+                        <div class="trace-item">
+                            <h4>⚡ Optimisation d'algorithmes</h4>
+                            <p class="date">Octobre 2023</p>
+                            <p>Refactoring d'un système de recommandation, réduction du temps de traitement de 70%.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Expert
+                            </div>
+                        </div>
+                        <div class="trace-item">
+                            <h4>🔍 Analyse de complexité</h4>
+                            <p class="date">Novembre 2023</p>
+                            <p>Étude comparative de structures de données pour l'optimisation des requêtes.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Maîtrisé
+                            </div>
+                        </div>
+                        <div class="trace-item">
+                            <h4>🚀 Performance Web</h4>
+                            <p class="date">Février 2024</p>
+                            <p>Optimisation d'une application React, réduction du bundle de 60% et amélioration du FCP.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Avancé
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="comp2-preuves" class="tab-content">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Preuves d'acquisition</h3>
+                    <div class="analyse-box">
+                        <h4>📈 Résultats mesurables</h4>
+                        <ul style="margin-top: 1rem; line-height: 2;">
+                            <li>🔄 Réduction moyenne de 65% du temps d'exécution sur 5 projets</li>
+                            <li>💾 Économie de 40% de mémoire sur les applications optimisées</li>
+                            <li>⚡ Amélioration du Time to First Byte de 2.3s à 0.8s</li>
+                            <li>📊 Complexité algorithmique réduite de O(n²) à O(n log n)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="comp2-analyse" class="tab-content">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Analyse Réflexive</h3>
+                    <div class="analyse-box">
+                        <h4>💡 Évolution de ma démarche d'optimisation</h4>
+                        <p style="margin-top: 1rem;">
+                            L'optimisation est devenue une seconde nature dans mon approche du développement. 
+                            J'ai appris que l'optimisation prématurée peut être contre-productive, et qu'il faut 
+                            d'abord mesurer pour identifier les vrais goulots d'étranglement.
+                        </p>
+                        <p style="margin-top: 1rem;">
+                            <strong>Méthodologie développée :</strong> Profiling → Identification → Optimisation → Validation
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compétence 3 Détail -->
+        <section id="comp3" class="section competence-detail">
+            <div class="detail-content">
+                <div class="section-header">
+                    <h2>Compétence 3 : Administrer</h2>
+                    <p>Installer, configurer, mettre à disposition et maintenir des infrastructures</p>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(event, 'comp3-traces')">Traces</button>
+                    <button class="tab" onclick="switchTab(event, 'comp3-preuves')">Preuves</button>
+                    <button class="tab" onclick="switchTab(event, 'comp3-analyse')">Analyse Réflexive</button>
+                </div>
+
+                <div id="comp3-traces" class="tab-content active">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Traces d'acquisition</h3>
+                    <div class="traces-grid">
+                        <div class="trace-item">
+                            <h4>☁️ Migration Cloud AWS</h4>
+                            <p class="date">Décembre 2023</p>
+                            <p>Migration complète d'une infrastructure on-premise vers AWS avec Terraform.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Maîtrisé
+                            </div>
+                        </div>
+                        <div class="trace-item">
+                            <h4>🔄 Pipeline CI/CD</h4>
+                            <p class="date">Janvier 2024</p>
+                            <p>Mise en place d'un pipeline complet avec GitLab CI, tests automatisés et déploiement.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Expert
+                            </div>
+                        </div>
+                        <div class="trace-item">
+                            <h4>🐳 Containerisation</h4>
+                            <p class="date">Mars 2024</p>
+                            <p>Dockerisation de microservices et orchestration avec Kubernetes.</p>
+                            <div class="level-badge">
+                                <span>✓</span> Avancé
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="comp3-preuves" class="tab-content">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Preuves d'acquisition</h3>
+                    <div class="analyse-box">
+                        <h4>🛡️ Indicateurs de performance</h4>
+                        <ul style="margin-top: 1rem; line-height: 2;">
+                            <li>✅ 99.9% de disponibilité sur les services déployés</li>
+                            <li>🚀 Déploiements automatisés en moins de 5 minutes</li>
+                            <li>🔒 0 incident de sécurité sur les infrastructures gérées</li>
+                            <li>📉 Réduction de 45% des coûts d'infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="comp3-analyse" class="tab-content">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Analyse Réflexive</h3>
+                    <div class="analyse-box">
+                        <h4>🌟 Infrastructure as Code : Un changement de paradigme</h4>
+                        <p style="margin-top: 1rem;">
+                            La transition vers une approche DevOps a transformé ma vision de l'administration système. 
+                            L'automatisation et le code déclaratif ont remplacé les configurations manuelles, 
+                            apportant reproductibilité et scalabilité.
+                        </p>
+                        <p style="margin-top: 1rem;">
+                            <strong>Compétences clés acquises :</strong> IaC, monitoring proactif, sécurité by design, 
+                            gestion des coûts cloud.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion" class="section" style="background: linear-gradient(135deg, var(--bg-light), var(--bg-white));">
+            <div class="detail-content">
+                <div class="section-header">
+                    <h2>Conclusion & Perspectives</h2>
+                    <p>Bilan de mon parcours et projets futurs</p>
+                </div>
+                
+                <div class="analyse-box" style="max-width: 800px; margin: 2rem auto;">
+                    <h4>📚 Synthèse de mon parcours BUT</h4>
+                    <p style="margin-top: 1rem;">
+                        Ces trois années de BUT Informatique m'ont permis d'acquérir une vision globale 
+                        du développement logiciel moderne. De la conception à la mise en production, 
+                        j'ai développé les compétences nécessaires pour mener des projets complexes.
+                    </p>
+                </div>
+
+                <div class="analyse-box" style="max-width: 800px; margin: 2rem auto;">
+                    <h4>🎯 Objectifs professionnels</h4>
+                    <ul style="margin-top: 1rem; line-height: 2;">
+                        <li>👨‍💻 Poste de développeur Full-Stack dans une entreprise innovante</li>
+                        <li>📖 Veille technologique continue et certifications cloud</li>
+                        <li>🤝 Contribution à des projets open source</li>
+                        <li>🎓 Possibilité de poursuivre en Master spécialisé</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#hero" class="btn">Retour au début</a>
+                    <a href="#" class="btn btn-outline" style="margin-left: 1rem;">Télécharger le PDF</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Boutons de présentation -->
+    <div class="presentation-mode">
+        <button class="presentation-btn" onclick="toggleFullscreen()" title="Plein écran">⛶</button>
+        <button class="presentation-btn" onclick="scrollToTop()" title="Retour en haut">↑</button>
+    </div>
+
+    <script>
+        // Navigation smooth scroll
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update active state
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Close mobile menu
+                    if (window.innerWidth <= 1024) {
+                        document.getElementById('sidebar').classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Scroll to section function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Tab switching
+        function switchTab(event, tabId) {
+            const button = event.currentTarget;
+            const parent = button.closest('.competence-detail');
+            
+            // Update active tab
+            parent.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Update content
+            parent.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Active section detection on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                
+                if (scrollPos >= top && scrollPos < top + height) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                navigateToNextSection();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                navigateToPreviousSection();
+            } else if (e.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+        });
+
+        function navigateToNextSection() {
+            const activeLink = document.querySelector('.nav-link.active');
+            const nextItem = activeLink?.parentElement?.nextElementSibling;
+            if (nextItem) {
+                nextItem.querySelector('.nav-link').click();
+            }
+        }
+
+        function navigateToPreviousSection() {
+            const activeLink = document.querySelector('.nav-link.active');
+            const prevItem = activeLink?.parentElement?.previousElementSibling;
+            if (prevItem) {
+                prevItem.querySelector('.nav-link').click();
+            }
+        }
+
+        // Progress bars animation on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-fill');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Print styles
+        const printStyles = `
+            @media print {
+                .sidebar, .menu-toggle, .presentation-mode {
+                    display: none !important;
+                }
+                .main-content {
+                    margin-left: 0 !important;
+                }
+                .section {
+                    page-break-after: always;
+                    min-height: auto;
+                    padding: 2rem;
+                }
+            }
+        `;
+        const style = document.createElement('style');
+        style.textContent = printStyles;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
