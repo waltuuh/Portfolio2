@@ -39,7 +39,7 @@ Portfolio2/
 
 ## 🚀 Installation et Utilisation
 
-### Méthode 1 : Ouvrir directement (Recommandé)
+### Ouvrir directement (Simple et Rapide)
 
 1. Cloner le repository :
 ```bash
@@ -59,9 +59,11 @@ xdg-open index.html
 start index.html
 ```
 
-### Méthode 2 : Serveur local
+**Le site fonctionne maintenant sans serveur local !** Vous pouvez simplement double-cliquer sur `index.html`.
 
-Pour éviter les problèmes CORS avec les modules ES6, utilisez un serveur local :
+### Serveur local (Optionnel)
+
+Pour un environnement de développement optimal, vous pouvez utiliser un serveur local :
 
 ```bash
 # Python 3
@@ -108,18 +110,21 @@ Ajoutez des sections dans `index.html` et créez les fonctions correspondantes d
 
 ## 🐛 Dépannage
 
-### Les modules ES6 ne se chargent pas
+### Le modal des compétences ne s'ouvre pas
 
-**Problème** : `CORS policy: Cross origin requests are only supported for protocol schemes`
+**Problème** : Les données ne se chargent pas ou il y a une erreur console
 
-**Solution** : Utilisez un serveur local (voir section Installation)
+**Solution** :
+- Vérifiez que le fichier `src/data/competences.json` existe
+- En cas d'erreur, le site utilise automatiquement des données de secours (fallback)
+- Ouvrez la console du navigateur (F12) pour voir les erreurs
 
 ### Les animations ne fonctionnent pas
 
 Vérifiez que votre navigateur supporte :
 - Intersection Observer API
 - CSS Grid & Flexbox
-- ES6 Modules
+- Fetch API pour charger les données JSON
 
 ## 📄 Licence
 
