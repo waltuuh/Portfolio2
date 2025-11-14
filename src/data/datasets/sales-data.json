@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "source": "Analyse de ventes e-commerce 2024",
+    "period": "Janvier - Décembre 2024",
+    "records": 365
+  },
+  "sales": [
+    {"date": "2024-01-01", "revenue": 15420, "orders": 87, "customers": 65, "avgOrderValue": 177.24, "category": "Électronique"},
+    {"date": "2024-01-02", "revenue": 18230, "orders": 102, "customers": 79, "avgOrderValue": 178.73, "category": "Électronique"},
+    {"date": "2024-01-03", "revenue": 16890, "orders": 94, "customers": 71, "avgOrderValue": 179.68, "category": "Vêtements"},
+    {"date": "2024-01-04", "revenue": 21450, "orders": 118, "customers": 92, "avgOrderValue": 181.78, "category": "Électronique"},
+    {"date": "2024-01-05", "revenue": 19670, "orders": 107, "customers": 84, "avgOrderValue": 183.83, "category": "Maison"},
+    {"date": "2024-01-06", "revenue": 17230, "orders": 96, "customers": 73, "avgOrderValue": 179.48, "category": "Sport"},
+    {"date": "2024-01-07", "revenue": 14560, "orders": 81, "customers": 62, "avgOrderValue": 179.75, "category": "Livres"},
+    {"date": "2024-01-08", "revenue": 22340, "orders": 125, "customers": 98, "avgOrderValue": 178.72, "category": "Électronique"},
+    {"date": "2024-01-09", "revenue": 20120, "orders": 112, "customers": 87, "avgOrderValue": 179.64, "category": "Vêtements"},
+    {"date": "2024-01-10", "revenue": 18950, "orders": 105, "customers": 82, "avgOrderValue": 180.48, "category": "Maison"},
+    {"date": "2024-02-01", "revenue": 16780, "orders": 93, "customers": 71, "avgOrderValue": 180.43, "category": "Sport"},
+    {"date": "2024-02-02", "revenue": 19340, "orders": 108, "customers": 84, "avgOrderValue": 179.07, "category": "Électronique"},
+    {"date": "2024-02-03", "revenue": 21230, "orders": 117, "customers": 91, "avgOrderValue": 181.45, "category": "Électronique"},
+    {"date": "2024-02-04", "revenue": 17890, "orders": 99, "customers": 76, "avgOrderValue": 180.71, "category": "Vêtements"},
+    {"date": "2024-02-05", "revenue": 23450, "orders": 131, "customers": 103, "avgOrderValue": 179.01, "category": "Électronique"},
+    {"date": "2024-02-06", "revenue": 20560, "orders": 114, "customers": 89, "avgOrderValue": 180.35, "category": "Maison"},
+    {"date": "2024-02-07", "revenue": 18670, "orders": 103, "customers": 80, "avgOrderValue": 181.26, "category": "Sport"},
+    {"date": "2024-02-08", "revenue": 22120, "orders": 123, "customers": 96, "avgOrderValue": 179.84, "category": "Électronique"},
+    {"date": "2024-02-09", "revenue": 19780, "orders": 110, "customers": 86, "avgOrderValue": 179.82, "category": "Livres"},
+    {"date": "2024-02-10", "revenue": 21340, "orders": 119, "customers": 93, "avgOrderValue": 179.33, "category": "Électronique"},
+    {"date": "2024-03-01", "revenue": 24560, "orders": 137, "customers": 107, "avgOrderValue": 179.27, "category": "Électronique"},
+    {"date": "2024-03-02", "revenue": 22340, "orders": 124, "customers": 97, "avgOrderValue": 180.16, "category": "Vêtements"},
+    {"date": "2024-03-03", "revenue": 20890, "orders": 116, "customers": 90, "avgOrderValue": 180.09, "category": "Maison"},
+    {"date": "2024-03-04", "revenue": 25670, "orders": 143, "customers": 112, "avgOrderValue": 179.51, "category": "Électronique"},
+    {"date": "2024-03-05", "revenue": 23120, "orders": 129, "customers": 101, "avgOrderValue": 179.22, "category": "Sport"},
+    {"date": "2024-03-06", "revenue": 21450, "orders": 119, "customers": 93, "avgOrderValue": 180.25, "category": "Électronique"},
+    {"date": "2024-03-07", "revenue": 19890, "orders": 111, "customers": 86, "avgOrderValue": 179.19, "category": "Livres"},
+    {"date": "2024-03-08", "revenue": 26780, "orders": 149, "customers": 117, "avgOrderValue": 179.73, "category": "Électronique"},
+    {"date": "2024-03-09", "revenue": 24230, "orders": 135, "customers": 105, "avgOrderValue": 179.48, "category": "Vêtements"},
+    {"date": "2024-03-10", "revenue": 22560, "orders": 126, "customers": 98, "avgOrderValue": 179.05, "category": "Maison"}
+  ],
+  "categoryBreakdown": {
+    "Électronique": 42.5,
+    "Vêtements": 22.3,
+    "Maison": 15.8,
+    "Sport": 11.2,
+    "Livres": 8.2
+  },
+  "monthlyTrends": [
+    {"month": "Janvier", "revenue": 184860, "growth": 0},
+    {"month": "Février", "revenue": 209220, "growth": 13.2},
+    {"month": "Mars", "revenue": 237490, "growth": 13.5},
+    {"month": "Avril", "revenue": 245680, "growth": 3.4},
+    {"month": "Mai", "revenue": 268940, "growth": 9.5},
+    {"month": "Juin", "revenue": 289670, "growth": 7.7},
+    {"month": "Juillet", "revenue": 312450, "growth": 7.9},
+    {"month": "Août", "revenue": 298320, "growth": -4.5},
+    {"month": "Septembre", "revenue": 321560, "growth": 7.8},
+    {"month": "Octobre", "revenue": 345890, "growth": 7.6},
+    {"month": "Novembre", "revenue": 412340, "growth": 19.2},
+    {"month": "Décembre", "revenue": 498760, "growth": 21.0}
+  ]
+}
