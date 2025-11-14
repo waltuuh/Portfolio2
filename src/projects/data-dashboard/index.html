@@ -20,8 +20,8 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-900">📊 Dashboard d'Analyse de Données</h1>
-                    <p class="text-sm text-gray-600">Analyse des ventes e-commerce 2024</p>
+                    <h1 class="text-2xl font-bold text-gray-900">📊 Dashboard Pilotage Automatique RER A - RATP</h1>
+                    <p class="text-sm text-gray-600">Analyse de l'utilisation quotidienne du pilotage automatique</p>
                 </div>
                 <a href="../../../index.html#projets" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                     ← Retour au portfolio
@@ -44,9 +44,9 @@
                     </div>
                     <span class="text-green-600 text-sm font-semibold">+12.5%</span>
                 </div>
-                <h3 class="text-gray-600 text-sm font-medium mb-1">Chiffre d'affaires total</h3>
+                <h3 class="text-gray-600 text-sm font-medium mb-1">Km parcourus en pilotage auto</h3>
                 <p class="text-3xl font-bold text-gray-900" id="totalRevenue">—</p>
-                <p class="text-xs text-gray-500 mt-2">vs période précédente</p>
+                <p class="text-xs text-gray-500 mt-2">km sur la période</p>
             </div>
 
             <!-- Total Orders -->
@@ -59,9 +59,9 @@
                     </div>
                     <span class="text-green-600 text-sm font-semibold">+8.3%</span>
                 </div>
-                <h3 class="text-gray-600 text-sm font-medium mb-1">Commandes totales</h3>
+                <h3 class="text-gray-600 text-sm font-medium mb-1">Trajets en mode auto</h3>
                 <p class="text-3xl font-bold text-gray-900" id="totalOrders">—</p>
-                <p class="text-xs text-gray-500 mt-2">sur la période</p>
+                <p class="text-xs text-gray-500 mt-2">trajets sur la période</p>
             </div>
 
             <!-- Avg Order Value -->
@@ -74,9 +74,9 @@
                     </div>
                     <span class="text-green-600 text-sm font-semibold">+2.1%</span>
                 </div>
-                <h3 class="text-gray-600 text-sm font-medium mb-1">Panier moyen</h3>
+                <h3 class="text-gray-600 text-sm font-medium mb-1">Taux d'utilisation moyen</h3>
                 <p class="text-3xl font-bold text-gray-900" id="avgOrderValue">—</p>
-                <p class="text-xs text-gray-500 mt-2">par commande</p>
+                <p class="text-xs text-gray-500 mt-2">du pilotage auto</p>
             </div>
 
             <!-- Total Customers -->
@@ -89,9 +89,9 @@
                     </div>
                     <span class="text-green-600 text-sm font-semibold">+15.7%</span>
                 </div>
-                <h3 class="text-gray-600 text-sm font-medium mb-1">Clients uniques</h3>
+                <h3 class="text-gray-600 text-sm font-medium mb-1">Incidents détectés</h3>
                 <p class="text-3xl font-bold text-gray-900" id="totalCustomers">—</p>
-                <p class="text-xs text-gray-500 mt-2">sur la période</p>
+                <p class="text-xs text-gray-500 mt-2">incidents sur la période</p>
             </div>
         </div>
 
@@ -100,7 +100,7 @@
             <!-- Revenue Trend Chart -->
             <div class="glass rounded-2xl p-6 border border-gray-200">
                 <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-lg font-bold text-gray-900">Évolution du chiffre d'affaires</h2>
+                    <h2 class="text-lg font-bold text-gray-900">Évolution de l'utilisation du pilotage automatique</h2>
                     <select id="revenuePeriod" class="px-3 py-1 border border-gray-300 rounded-lg text-sm">
                         <option value="daily">Journalier</option>
                         <option value="monthly" selected>Mensuel</option>
@@ -111,7 +111,7 @@
 
             <!-- Category Breakdown -->
             <div class="glass rounded-2xl p-6 border border-gray-200">
-                <h2 class="text-lg font-bold text-gray-900 mb-4">Répartition par catégorie</h2>
+                <h2 class="text-lg font-bold text-gray-900 mb-4">Répartition par ligne RER</h2>
                 <canvas id="categoryChart" height="300"></canvas>
             </div>
         </div>
@@ -120,7 +120,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <!-- Orders Timeline -->
             <div class="glass rounded-2xl p-6 border border-gray-200">
-                <h2 class="text-lg font-bold text-gray-900 mb-4">Évolution des commandes</h2>
+                <h2 class="text-lg font-bold text-gray-900 mb-4">Nombre de trajets mensuels</h2>
                 <canvas id="ordersChart" height="300"></canvas>
             </div>
 
@@ -163,22 +163,26 @@
 
         <!-- Technical Stack -->
         <div class="glass rounded-2xl p-6 border border-gray-200 mt-6">
-            <h2 class="text-lg font-bold text-gray-900 mb-4">🛠️ Stack technique utilisé</h2>
-            <div class="flex flex-wrap gap-3">
-                <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-lg font-medium">JavaScript ES6+</span>
-                <span class="px-4 py-2 bg-green-100 text-green-800 rounded-lg font-medium">Chart.js</span>
-                <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-lg font-medium">JSON Data</span>
-                <span class="px-4 py-2 bg-orange-100 text-orange-800 rounded-lg font-medium">TailwindCSS</span>
-                <span class="px-4 py-2 bg-red-100 text-red-800 rounded-lg font-medium">Data Visualization</span>
+            <h2 class="text-lg font-bold text-gray-900 mb-4">🛠️ Contexte du projet - Stage RATP</h2>
+            <div class="mb-4 p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-semibold text-gray-900 mb-2">📍 Mission</h3>
+                <p class="text-sm text-gray-700">Création d'un dashboard d'analyse pour mesurer et suivre l'utilisation quotidienne du système de pilotage automatique du RER A. L'objectif était de permettre aux équipes RATP de réaliser des analyses sur des périodes voulues afin d'optimiser le déploiement et la maintenance du système.</p>
+            </div>
+            <div class="flex flex-wrap gap-3 mb-4">
+                <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-lg font-medium">Python</span>
+                <span class="px-4 py-2 bg-green-100 text-green-800 rounded-lg font-medium">Power BI / Tableau</span>
+                <span class="px-4 py-2 bg-purple-100 text-purple-800 rounded-lg font-medium">SQL Server</span>
+                <span class="px-4 py-2 bg-orange-100 text-orange-800 rounded-lg font-medium">Dashboard Design</span>
+                <span class="px-4 py-2 bg-red-100 text-red-800 rounded-lg font-medium">KPI Analysis</span>
             </div>
             <div class="mt-4 p-4 bg-gray-50 rounded-lg">
                 <h3 class="font-semibold text-gray-900 mb-2">Compétences démontrées :</h3>
                 <ul class="text-sm text-gray-600 space-y-1">
-                    <li>✅ Chargement et manipulation de données JSON</li>
-                    <li>✅ Création de visualisations interactives (graphiques en ligne, camemberts, barres)</li>
-                    <li>✅ Calcul de KPIs et métriques business</li>
-                    <li>✅ Export de données (CSV)</li>
-                    <li>✅ Interface utilisateur responsive et moderne</li>
+                    <li>✅ Collecte et traitement de données de production ferroviaire</li>
+                    <li>✅ Création de KPIs pertinents pour le suivi opérationnel</li>
+                    <li>✅ Visualisations interactives pour faciliter la prise de décision</li>
+                    <li>✅ Analyse de tendances et détection d'anomalies</li>
+                    <li>✅ Reporting automatisé pour le management RATP</li>
                 </ul>
             </div>
         </div>

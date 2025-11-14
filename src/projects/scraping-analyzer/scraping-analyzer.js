@@ -96,7 +96,7 @@ function createPriceComparisonChart() {
             },
             scales: {
                 y: {
-                    beginAtZero: true,
+                    beginAtZero: false,
                     ticks: {
                         callback: function(value) {
                             return formatCurrency(value);

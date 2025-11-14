@@ -25,8 +25,8 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-900">🕷️ Analyseur de Données Scrappées</h1>
-                    <p class="text-sm text-gray-600">Comparateur de prix multi-sites e-commerce</p>
+                    <h1 class="text-2xl font-bold text-gray-900">💊 Plateforme d'Analyse de Médicaments</h1>
+                    <p class="text-sm text-gray-600">Scraping, Recherche & Chatbot LLM - Projet Scrum</p>
                 </div>
                 <a href="../../../index.html#projets" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
                     ← Retour au portfolio
@@ -47,12 +47,13 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-gray-900 mb-2">À propos de ce projet</h3>
-                    <p class="text-gray-700 mb-2">Démonstration d'un système de scraping web avec visualisation des données collectées depuis plusieurs sites e-commerce.</p>
+                    <p class="text-gray-700 mb-2">Projet de groupe en méthodologie Scrum : scraping d'un site web contenant toutes les informations sur les médicaments. Création d'une base de données structurée, d'un site web de recherche et d'un chatbot avec fine-tuning de LLM pour faciliter l'accès à l'information médicale.</p>
                     <div class="flex flex-wrap gap-2 mt-3">
                         <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">Python Scrapy</span>
-                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">BeautifulSoup</span>
-                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">Pandas</span>
-                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">Data Cleaning</span>
+                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">MongoDB</span>
+                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">Flask/Django</span>
+                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">LLM Fine-tuning</span>
+                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">Scrum</span>
                     </div>
                 </div>
             </div>
@@ -69,7 +70,7 @@
                     </div>
                     <div>
                         <p class="text-2xl font-bold text-gray-900" id="totalProducts">—</p>
-                        <p class="text-sm text-gray-600">Produits scannés</p>
+                        <p class="text-sm text-gray-600">Médicaments scannés</p>
                     </div>
                 </div>
             </div>
@@ -83,7 +84,7 @@
                     </div>
                     <div>
                         <p class="text-2xl font-bold text-gray-900" id="totalSites">—</p>
-                        <p class="text-sm text-gray-600">Sites comparés</p>
+                        <p class="text-sm text-gray-600">Sources de données</p>
                     </div>
                 </div>
             </div>
@@ -97,7 +98,7 @@
                     </div>
                     <div>
                         <p class="text-2xl font-bold text-gray-900" id="avgVariation">—</p>
-                        <p class="text-sm text-gray-600">Écart moyen</p>
+                        <p class="text-sm text-gray-600">Classes thérapeutiques</p>
                     </div>
                 </div>
             </div>
@@ -121,13 +122,13 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <!-- Price Comparison Chart -->
             <div class="glass rounded-2xl p-6 border border-gray-200">
-                <h2 class="text-lg font-bold text-gray-900 mb-4">Comparaison des prix par produit</h2>
+                <h2 class="text-lg font-bold text-gray-900 mb-4">Distribution des médicaments par catégorie</h2>
                 <canvas id="priceComparisonChart" height="300"></canvas>
             </div>
 
             <!-- Site Average Prices -->
             <div class="glass rounded-2xl p-6 border border-gray-200">
-                <h2 class="text-lg font-bold text-gray-900 mb-4">Prix moyens par site</h2>
+                <h2 class="text-lg font-bold text-gray-900 mb-4">Répartition par type de prescription</h2>
                 <canvas id="siteAveragesChart" height="300"></canvas>
             </div>
         </div>
@@ -140,7 +141,7 @@
 
         <!-- Products Grid -->
         <div class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Produits analysés</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Médicaments indexés</h2>
             <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Populated by JS -->
             </div>
@@ -148,7 +149,7 @@
 
         <!-- Best Deals Section -->
         <div class="glass rounded-2xl p-6 border border-gray-200">
-            <h2 class="text-lg font-bold text-gray-900 mb-4">🎯 Meilleures affaires détectées</h2>
+            <h2 class="text-lg font-bold text-gray-900 mb-4">🎯 Médicaments les plus recherchés</h2>
             <div id="bestDeals" class="space-y-4">
                 <!-- Populated by JS -->
             </div>
@@ -156,26 +157,43 @@
 
         <!-- Technical Details -->
         <div class="glass rounded-2xl p-6 border border-gray-200 mt-8">
-            <h2 class="text-lg font-bold text-gray-900 mb-4">🛠️ Méthodologie de scraping</h2>
+            <h2 class="text-lg font-bold text-gray-900 mb-4">🛠️ Contexte du projet - Méthodologie Scrum</h2>
+            <div class="mb-4 p-4 bg-purple-50 rounded-lg">
+                <h3 class="font-semibold text-gray-900 mb-2">📍 Vue d'ensemble</h3>
+                <p class="text-sm text-gray-700 mb-3">Projet de groupe réalisé en méthode Scrum avec sprints, stand-ups quotidiens et rétrospectives. L'objectif était de créer une plateforme complète d'information sur les médicaments en scrappant un site web médical, en structurant les données dans une base MongoDB, et en proposant une interface de recherche enrichie d'un chatbot intelligent.</p>
+                <div class="mt-3 p-3 bg-white rounded border border-purple-200">
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🎯 Livrables</h4>
+                    <ul class="text-xs text-gray-700 space-y-1">
+                        <li>• Base de données structurée de médicaments (MongoDB)</li>
+                        <li>• Site web de recherche avec filtres avancés</li>
+                        <li>• Chatbot conversationnel avec fine-tuning de LLM</li>
+                        <li>• Documentation technique et user stories</li>
+                    </ul>
+                </div>
+            </div>
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
                     <h3 class="font-semibold text-gray-900 mb-3">Technologies utilisées</h3>
                     <div class="space-y-2 text-sm">
                         <div class="flex items-start gap-2">
                             <span class="text-purple-600 font-bold">→</span>
-                            <span><strong>Scrapy:</strong> Framework pour crawler les sites e-commerce</span>
+                            <span><strong>Scrapy:</strong> Extraction des données médicales</span>
                         </div>
                         <div class="flex items-start gap-2">
                             <span class="text-purple-600 font-bold">→</span>
-                            <span><strong>BeautifulSoup:</strong> Parsing HTML et extraction de données</span>
+                            <span><strong>MongoDB:</strong> Stockage NoSQL des médicaments</span>
                         </div>
                         <div class="flex items-start gap-2">
                             <span class="text-purple-600 font-bold">→</span>
-                            <span><strong>Pandas:</strong> Nettoyage et structuration des données</span>
+                            <span><strong>Flask/Django:</strong> Backend API et interface web</span>
                         </div>
                         <div class="flex items-start gap-2">
                             <span class="text-purple-600 font-bold">→</span>
-                            <span><strong>JSON:</strong> Format de stockage structuré</span>
+                            <span><strong>LangChain + OpenAI:</strong> Fine-tuning LLM pour chatbot</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-purple-600 font-bold">→</span>
+                            <span><strong>Jira:</strong> Gestion Scrum (sprints, user stories)</span>
                         </div>
                     </div>
                 </div>
@@ -184,19 +202,27 @@
                     <div class="space-y-2 text-sm">
                         <div class="flex items-center gap-2">
                             <span class="text-green-600">✓</span>
-                            <span>Extraction automatisée de données web</span>
+                            <span>Gestion de projet Agile/Scrum</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-green-600">✓</span>
-                            <span>Nettoyage et normalisation des prix</span>
+                            <span>Web scraping de données complexes</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-green-600">✓</span>
-                            <span>Gestion des erreurs et données manquantes</span>
+                            <span>Architecture base de données NoSQL</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-green-600">✓</span>
-                            <span>Analyse comparative et détection de tendances</span>
+                            <span>Développement Full-Stack (Frontend + Backend)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✓</span>
+                            <span>Fine-tuning et intégration de LLM</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✓</span>
+                            <span>Travail collaboratif en équipe</span>
                         </div>
                     </div>
                 </div>
