@@ -82,7 +82,7 @@ function createRevenueChart() {
             },
             scales: {
                 y: {
-                    beginAtZero: true,
+                    beginAtZero: false,
                     ticks: {
                         callback: function(value) {
                             return formatCurrency(value);
@@ -177,7 +177,7 @@ function createOrdersChart() {
             },
             scales: {
                 y: {
-                    beginAtZero: true,
+                    beginAtZero: false,
                     ticks: {
                         callback: function(value) {
                             return formatNumber(value);

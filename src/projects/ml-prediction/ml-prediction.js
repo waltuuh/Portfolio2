@@ -202,10 +202,14 @@ function createScatterChart() {
                 pointHoverRadius: 8
             }, {
                 label: 'Ligne parfaite',
-                data: [
-                    { x: 100000, y: 100000 },
-                    { x: 600000, y: 600000 }
-                ],
+                data: (function() {
+                    const minPrice = Math.min(...mlData.training_data.map(d => d.prix));
+                    const maxPrice = Math.max(...mlData.training_data.map(d => d.prix));
+                    return [
+                        { x: minPrice, y: minPrice },
+                        { x: maxPrice, y: maxPrice }
+                    ];
+                })(),
                 type: 'line',
                 borderColor: 'rgb(239, 68, 68)',
                 borderWidth: 2,
@@ -238,6 +242,7 @@ function createScatterChart() {
                         display: true,
                         text: 'Prix réel (€)'
                     },
+                    beginAtZero: false,
                     ticks: {
                         callback: function(value) {
                             return formatCurrency(value, 0);
@@ -249,6 +254,7 @@ function createScatterChart() {
                         display: true,
                         text: 'Prix prédit (€)'
                     },
+                    beginAtZero: false,
                     ticks: {
                         callback: function(value) {
                             return formatCurrency(value, 0);
