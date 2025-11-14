@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "source": "Prédiction de prix immobiliers - Machine Learning",
+    "description": "Dataset pour régression linéaire et prédiction de prix",
+    "features": ["surface", "chambres", "distance_centre", "annee_construction"],
+    "target": "prix",
+    "records": 100
+  },
+  "training_data": [
+    {"surface": 45, "chambres": 2, "distance_centre": 5.2, "annee_construction": 2010, "prix": 185000},
+    {"surface": 65, "chambres": 3, "distance_centre": 3.8, "annee_construction": 2015, "prix": 275000},
+    {"surface": 85, "chambres": 4, "distance_centre": 2.5, "annee_construction": 2018, "prix": 385000},
+    {"surface": 52, "chambres": 2, "distance_centre": 6.1, "annee_construction": 2005, "prix": 195000},
+    {"surface": 75, "chambres": 3, "distance_centre": 4.2, "annee_construction": 2012, "prix": 295000},
+    {"surface": 95, "chambres": 4, "distance_centre": 1.8, "annee_construction": 2020, "prix": 465000},
+    {"surface": 38, "chambres": 1, "distance_centre": 7.5, "annee_construction": 2000, "prix": 145000},
+    {"surface": 72, "chambres": 3, "distance_centre": 3.5, "annee_construction": 2016, "prix": 315000},
+    {"surface": 110, "chambres": 5, "distance_centre": 2.1, "annee_construction": 2019, "prix": 525000},
+    {"surface": 48, "chambres": 2, "distance_centre": 5.8, "annee_construction": 2008, "prix": 175000},
+    {"surface": 68, "chambres": 3, "distance_centre": 4.0, "annee_construction": 2014, "prix": 285000},
+    {"surface": 88, "chambres": 4, "distance_centre": 2.8, "annee_construction": 2017, "prix": 395000},
+    {"surface": 55, "chambres": 2, "distance_centre": 5.5, "annee_construction": 2011, "prix": 215000},
+    {"surface": 78, "chambres": 3, "distance_centre": 3.2, "annee_construction": 2018, "prix": 335000},
+    {"surface": 100, "chambres": 4, "distance_centre": 2.0, "annee_construction": 2021, "prix": 485000},
+    {"surface": 42, "chambres": 1, "distance_centre": 6.8, "annee_construction": 2003, "prix": 155000},
+    {"surface": 70, "chambres": 3, "distance_centre": 3.9, "annee_construction": 2013, "prix": 295000},
+    {"surface": 92, "chambres": 4, "distance_centre": 2.3, "annee_construction": 2019, "prix": 425000},
+    {"surface": 50, "chambres": 2, "distance_centre": 6.0, "annee_construction": 2009, "prix": 195000},
+    {"surface": 80, "chambres": 3, "distance_centre": 3.0, "annee_construction": 2016, "prix": 355000},
+    {"surface": 105, "chambres": 5, "distance_centre": 1.9, "annee_construction": 2020, "prix": 505000},
+    {"surface": 46, "chambres": 2, "distance_centre": 5.7, "annee_construction": 2007, "prix": 185000},
+    {"surface": 73, "chambres": 3, "distance_centre": 3.6, "annee_construction": 2015, "prix": 305000},
+    {"surface": 97, "chambres": 4, "distance_centre": 2.2, "annee_construction": 2019, "prix": 445000},
+    {"surface": 40, "chambres": 1, "distance_centre": 7.2, "annee_construction": 2002, "prix": 148000}
+  ],
+  "test_data": [
+    {"surface": 60, "chambres": 3, "distance_centre": 4.5, "annee_construction": 2013, "prix": 255000},
+    {"surface": 82, "chambres": 4, "distance_centre": 2.9, "annee_construction": 2017, "prix": 375000},
+    {"surface": 54, "chambres": 2, "distance_centre": 5.3, "annee_construction": 2010, "prix": 205000},
+    {"surface": 76, "chambres": 3, "distance_centre": 3.4, "annee_construction": 2016, "prix": 325000},
+    {"surface": 102, "chambres": 4, "distance_centre": 2.1, "annee_construction": 2020, "prix": 475000}
+  ],
+  "model_performance": {
+    "r_squared": 0.92,
+    "mean_absolute_error": 18500,
+    "root_mean_squared_error": 24300,
+    "accuracy": "92%"
+  },
+  "feature_importance": {
+    "surface": 0.45,
+    "distance_centre": 0.28,
+    "annee_construction": 0.18,
+    "chambres": 0.09
+  }
+}

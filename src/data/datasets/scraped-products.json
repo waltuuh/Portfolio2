@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "source": "Web Scraping - Comparateur de prix e-commerce",
+    "scrapedAt": "2024-11-14T10:30:00Z",
+    "sites": ["Amazon", "Cdiscount", "Fnac", "Darty"],
+    "totalProducts": 150
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop Dell XPS 13",
+      "category": "Informatique",
+      "prices": [
+        {"site": "Amazon", "price": 1299.99, "inStock": true, "rating": 4.5},
+        {"site": "Cdiscount", "price": 1249.00, "inStock": true, "rating": 4.3},
+        {"site": "Fnac", "price": 1299.00, "inStock": true, "rating": 4.4},
+        {"site": "Darty", "price": 1349.99, "inStock": false, "rating": 4.2}
+      ],
+      "avgPrice": 1299.50,
+      "minPrice": 1249.00,
+      "maxPrice": 1349.99,
+      "priceVariation": 8.1
+    },
+    {
+      "id": 2,
+      "name": "iPhone 15 Pro 256Go",
+      "category": "Téléphonie",
+      "prices": [
+        {"site": "Amazon", "price": 1229.00, "inStock": true, "rating": 4.7},
+        {"site": "Cdiscount", "price": 1199.99, "inStock": true, "rating": 4.5},
+        {"site": "Fnac", "price": 1229.00, "inStock": true, "rating": 4.6},
+        {"site": "Darty", "price": 1229.00, "inStock": true, "rating": 4.5}
+      ],
+      "avgPrice": 1221.75,
+      "minPrice": 1199.99,
+      "maxPrice": 1229.00,
+      "priceVariation": 2.4
+    },
+    {
+      "id": 3,
+      "name": "Samsung Galaxy S24",
+      "category": "Téléphonie",
+      "prices": [
+        {"site": "Amazon", "price": 899.00, "inStock": true, "rating": 4.4},
+        {"site": "Cdiscount", "price": 869.99, "inStock": true, "rating": 4.3},
+        {"site": "Fnac", "price": 899.00, "inStock": true, "rating": 4.5},
+        {"site": "Darty", "price": 919.00, "inStock": true, "rating": 4.3}
+      ],
+      "avgPrice": 896.75,
+      "minPrice": 869.99,
+      "maxPrice": 919.00,
+      "priceVariation": 5.6
+    },
+    {
+      "id": 4,
+      "name": "Apple MacBook Air M2",
+      "category": "Informatique",
+      "prices": [
+        {"site": "Amazon", "price": 1199.00, "inStock": true, "rating": 4.8},
+        {"site": "Cdiscount", "price": 1149.99, "inStock": true, "rating": 4.6},
+        {"site": "Fnac", "price": 1199.00, "inStock": true, "rating": 4.7},
+        {"site": "Darty", "price": 1199.00, "inStock": true, "rating": 4.7}
+      ],
+      "avgPrice": 1186.75,
+      "minPrice": 1149.99,
+      "maxPrice": 1199.00,
+      "priceVariation": 4.3
+    },
+    {
+      "id": 5,
+      "name": "Sony WH-1000XM5",
+      "category": "Audio",
+      "prices": [
+        {"site": "Amazon", "price": 379.00, "inStock": true, "rating": 4.6},
+        {"site": "Cdiscount", "price": 349.99, "inStock": true, "rating": 4.5},
+        {"site": "Fnac", "price": 379.00, "inStock": true, "rating": 4.6},
+        {"site": "Darty", "price": 399.00, "inStock": true, "rating": 4.5}
+      ],
+      "avgPrice": 376.75,
+      "minPrice": 349.99,
+      "maxPrice": 399.00,
+      "priceVariation": 14.0
+    },
+    {
+      "id": 6,
+      "name": "iPad Pro 11 pouces",
+      "category": "Tablettes",
+      "prices": [
+        {"site": "Amazon", "price": 899.00, "inStock": true, "rating": 4.7},
+        {"site": "Cdiscount", "price": 879.99, "inStock": true, "rating": 4.5},
+        {"site": "Fnac", "price": 899.00, "inStock": true, "rating": 4.6},
+        {"site": "Darty", "price": 899.00, "inStock": false, "rating": 4.6}
+      ],
+      "avgPrice": 894.25,
+      "minPrice": 879.99,
+      "maxPrice": 899.00,
+      "priceVariation": 2.2
+    },
+    {
+      "id": 7,
+      "name": "Nintendo Switch OLED",
+      "category": "Gaming",
+      "prices": [
+        {"site": "Amazon", "price": 349.99, "inStock": true, "rating": 4.8},
+        {"site": "Cdiscount", "price": 329.99, "inStock": true, "rating": 4.7},
+        {"site": "Fnac", "price": 349.99, "inStock": true, "rating": 4.8},
+        {"site": "Darty", "price": 349.99, "inStock": true, "rating": 4.7}
+      ],
+      "avgPrice": 344.99,
+      "minPrice": 329.99,
+      "maxPrice": 349.99,
+      "priceVariation": 6.1
+    },
+    {
+      "id": 8,
+      "name": "PlayStation 5",
+      "category": "Gaming",
+      "prices": [
+        {"site": "Amazon", "price": 549.99, "inStock": true, "rating": 4.7},
+        {"site": "Cdiscount", "price": 549.99, "inStock": false, "rating": 4.6},
+        {"site": "Fnac", "price": 549.99, "inStock": true, "rating": 4.7},
+        {"site": "Darty", "price": 549.99, "inStock": true, "rating": 4.6}
+      ],
+      "avgPrice": 549.99,
+      "minPrice": 549.99,
+      "maxPrice": 549.99,
+      "priceVariation": 0.0
+    }
+  ],
+  "statistics": {
+    "totalProducts": 8,
+    "avgPriceVariation": 5.34,
+    "bestDeals": [
+      {"productId": 5, "savings": 49.01, "site": "Cdiscount"},
+      {"productId": 1, "savings": 100.99, "site": "Cdiscount"},
+      {"productId": 4, "savings": 49.01, "site": "Cdiscount"}
+    ],
+    "categoryDistribution": {
+      "Informatique": 25,
+      "Téléphonie": 25,
+      "Audio": 12.5,
+      "Tablettes": 12.5,
+      "Gaming": 25
+    }
+  }
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyseur de Scraping | Portfolio Rayane</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .price-tag { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-white to-purple-50 min-h-screen">
+    <!-- Header -->
+    <header class="glass border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">🕷️ Analyseur de Données Scrappées</h1>
+                    <p class="text-sm text-gray-600">Comparateur de prix multi-sites e-commerce</p>
+                </div>
+                <a href="../../../index.html#projets" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                    ← Retour au portfolio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Info Banner -->
+        <div class="glass rounded-2xl p-6 border border-purple-200 bg-gradient-to-r from-purple-50 to-blue-50 mb-8">
+            <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">À propos de ce projet</h3>
+                    <p class="text-gray-700 mb-2">Démonstration d'un système de scraping web avec visualisation des données collectées depuis plusieurs sites e-commerce.</p>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">Python Scrapy</span>
+                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">BeautifulSoup</span>
+                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">Pandas</span>
+                        <span class="px-3 py-1 bg-white rounded-lg text-sm font-medium text-purple-700">Data Cleaning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="glass rounded-2xl p-6 border border-gray-200">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-gray-900" id="totalProducts">—</p>
+                        <p class="text-sm text-gray-600">Produits scannés</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl p-6 border border-gray-200">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-gray-900" id="totalSites">—</p>
+                        <p class="text-sm text-gray-600">Sites comparés</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl p-6 border border-gray-200">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-gray-900" id="avgVariation">—</p>
+                        <p class="text-sm text-gray-600">Écart moyen</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass rounded-2xl p-6 border border-gray-200">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-gray-900" id="lastScrape">—</p>
+                        <p class="text-sm text-gray-600">Dernière MAJ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <!-- Price Comparison Chart -->
+            <div class="glass rounded-2xl p-6 border border-gray-200">
+                <h2 class="text-lg font-bold text-gray-900 mb-4">Comparaison des prix par produit</h2>
+                <canvas id="priceComparisonChart" height="300"></canvas>
+            </div>
+
+            <!-- Site Average Prices -->
+            <div class="glass rounded-2xl p-6 border border-gray-200">
+                <h2 class="text-lg font-bold text-gray-900 mb-4">Prix moyens par site</h2>
+                <canvas id="siteAveragesChart" height="300"></canvas>
+            </div>
+        </div>
+
+        <!-- Category Distribution -->
+        <div class="glass rounded-2xl p-6 border border-gray-200 mb-8">
+            <h2 class="text-lg font-bold text-gray-900 mb-4">Répartition par catégorie</h2>
+            <canvas id="categoryDistributionChart" height="150"></canvas>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Produits analysés</h2>
+            <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- Best Deals Section -->
+        <div class="glass rounded-2xl p-6 border border-gray-200">
+            <h2 class="text-lg font-bold text-gray-900 mb-4">🎯 Meilleures affaires détectées</h2>
+            <div id="bestDeals" class="space-y-4">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- Technical Details -->
+        <div class="glass rounded-2xl p-6 border border-gray-200 mt-8">
+            <h2 class="text-lg font-bold text-gray-900 mb-4">🛠️ Méthodologie de scraping</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-3">Technologies utilisées</h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-start gap-2">
+                            <span class="text-purple-600 font-bold">→</span>
+                            <span><strong>Scrapy:</strong> Framework pour crawler les sites e-commerce</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-purple-600 font-bold">→</span>
+                            <span><strong>BeautifulSoup:</strong> Parsing HTML et extraction de données</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-purple-600 font-bold">→</span>
+                            <span><strong>Pandas:</strong> Nettoyage et structuration des données</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-purple-600 font-bold">→</span>
+                            <span><strong>JSON:</strong> Format de stockage structuré</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-3">Compétences démontrées</h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✓</span>
+                            <span>Extraction automatisée de données web</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✓</span>
+                            <span>Nettoyage et normalisation des prix</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✓</span>
+                            <span>Gestion des erreurs et données manquantes</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600">✓</span>
+                            <span>Analyse comparative et détection de tendances</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./scraping-analyzer.js"></script>
+</body>
+</html>
