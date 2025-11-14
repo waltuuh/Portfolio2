@@ -1,0 +1,106 @@
+{
+  "competences": [
+    {
+      "id": 1,
+      "title": "Compétence 1 : Gérer (les données)",
+      "color": "blue",
+      "description": "Collecter (scraping), nettoyer, structurer et exploiter les données pour l'analyse.",
+      "niveau": 85,
+      "tags": ["Python", "Scrapy", "Pandas", "SQL"],
+      "traces": [
+        {
+          "title": "Scraping de données Web",
+          "date": "2024–2025",
+          "description": "Développement de spiders Scrapy en Python pour extraire automatiquement des informations, gestion des pipelines et export en JSON/CSV.",
+          "tags": ["Python", "Scrapy", "JSON", "CSV"]
+        },
+        {
+          "title": "Nettoyage & préparation",
+          "date": "2024–2025",
+          "description": "Scripts de nettoyage (pandas) : dédoublonnage, normalisation des formats, contrôle de qualité et préparation à l'analyse.",
+          "tags": ["Pandas", "Data Cleaning", "Qualité des données"]
+        },
+        {
+          "title": "Stockage & requêtes",
+          "date": "2024–2025",
+          "description": "Structuration des données et chargement dans une base SQL pour requêtes et agrégations.",
+          "tags": ["SQL", "Modélisation", "Indexation"]
+        }
+      ],
+      "preuves": [
+        "✅ Collecte automatisée par spiders Scrapy",
+        "✅ Données nettoyées et normalisées (pandas)",
+        "✅ Jeux de données structurés (JSON/CSV/SQL) prêts à l'analyse"
+      ],
+      "reflexion": "Gérer les données m'a appris à être rigoureux : un scraping fiable et un nettoyage soigné conditionnent la qualité des analyses."
+    },
+    {
+      "id": 2,
+      "title": "Compétence 2 : Conduire (un projet)",
+      "color": "mint",
+      "description": "Piloter un projet en Agile : sprints, suivi de l'avancement, gestion des livrables et du code sur GitHub.",
+      "niveau": 80,
+      "tags": ["Scrum", "Git & GitHub", "Issues/PRs", "Planning"],
+      "traces": [
+        {
+          "title": "Planification Scrum hebdomadaire",
+          "date": "2024–2025",
+          "description": "Backlog, sprints, daily/weekly, revues d'avancement et adaptation du planning.",
+          "tags": ["Scrum", "Backlog", "Sprints"]
+        },
+        {
+          "title": "Suivi GitHub (issues/PR)",
+          "date": "2024–2025",
+          "description": "Organisation par issues, revues de code via pull requests et historique clair des décisions.",
+          "tags": ["Git", "GitHub", "Code Review"]
+        },
+        {
+          "title": "Livrables & jalons",
+          "date": "2025",
+          "description": "Orchestration des livrables (poster, vidéo, rapport) et respect des échéances.",
+          "tags": ["Gestion des livrables", "Roadmap", "Qualité"]
+        }
+      ],
+      "preuves": [
+        "✅ Sprints planifiés et objectifs atteints",
+        "✅ Workflow Git propre (branches, PR, issues)",
+        "✅ Livrables remis à temps (poster, vidéo, rapport)"
+      ],
+      "reflexion": "Conduire un projet m'a appris l'anticipation et l'adaptabilité : communiquer tôt, découper finement, et itérer pour livrer à l'heure."
+    },
+    {
+      "id": 3,
+      "title": "Compétence 3 : Collaborer (en équipe)",
+      "color": "purple",
+      "description": "Co-construire des livrables, communiquer clairement et se coordonner pour atteindre l'objectif commun.",
+      "niveau": 90,
+      "tags": ["Communication", "Poster & Vidéo", "Réunions", "Coordination"],
+      "traces": [
+        {
+          "title": "Poster de projet",
+          "date": "2025",
+          "description": "Conception collective d'un poster A1 : répartition des sections (contenu/design) et intégration des retours.",
+          "tags": ["Design", "Rédaction", "Mise en page"]
+        },
+        {
+          "title": "Vidéo de présentation (~3 min)",
+          "date": "2025",
+          "description": "Écriture du script, tournage et montage en équipe pour présenter le projet de façon claire et engageante.",
+          "tags": ["Storyboard", "Montage", "Communication"]
+        },
+        {
+          "title": "Réunions & coordination",
+          "date": "2024–2025",
+          "description": "Réunions hebdomadaires (Discord/présentiel), comptes-rendus et plan d'actions pour une coordination fluide.",
+          "tags": ["Réunions", "Compte-rendu", "Organisation"]
+        }
+      ],
+      "preuves": [
+        "✅ Livrables collectifs (poster + vidéo) finalisés",
+        "✅ Communication régulière et feedbacks intégrés",
+        "✅ Répartition claire des rôles et entraide"
+      ],
+      "reflexion": "La collaboration fonctionne quand chacun est écouté et responsabilisé : j'ai progressé en feedback, coordination et clarté des messages."
+    }
+  ]
+}
