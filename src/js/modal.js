@@ -10,11 +10,17 @@ let competencesData = null;
 async function loadCompetencesData() {
     if (!competencesData) {
         try {
+            console.log('Chargement des données de compétences...');
             const response = await fetch('./src/data/competences.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const data = await response.json();
             competencesData = data.competences;
+            console.log('Données de compétences chargées:', competencesData.length, 'compétences');
         } catch (error) {
             console.error('Erreur lors du chargement des compétences:', error);
+            alert('Erreur lors du chargement des données. Veuillez rafraîchir la page.');
             competencesData = [];
         }
     }
@@ -26,8 +32,15 @@ async function loadCompetencesData() {
  * @param {number} competenceId - L'ID de la compétence (1, 2, ou 3)
  */
 export async function showCompetenceDetail(competenceId) {
+    console.log('showCompetenceDetail appelée avec ID:', competenceId);
+
     const modal = document.getElementById('competenceDetail');
     const content = document.getElementById('competenceDetailContent');
+
+    if (!modal || !content) {
+        console.error('Éléments du modal non trouvés dans le DOM');
+        return;
+    }
 
     // Charge les données si nécessaire
     const competences = await loadCompetencesData();
@@ -35,8 +48,11 @@ export async function showCompetenceDetail(competenceId) {
 
     if (!data) {
         console.error('Compétence non trouvée:', competenceId);
+        alert(`La compétence ${competenceId} n'a pas été trouvée.`);
         return;
     }
+
+    console.log('Affichage des détails pour:', data.title);
 
     content.innerHTML = `
         <div class="space-y-8">
@@ -144,10 +160,18 @@ export function initModalKeyboard() {
  * Initialise le système de modals
  */
 export function initModal() {
+    console.log('Initialisation du système de modals...');
+
     initModalKeyboard();
 
     // Expose les fonctions au contexte global pour les onclick dans le HTML
     window.showCompetenceDetail = showCompetenceDetail;
     window.closeCompetenceDetail = closeCompetenceDetail;
     window.switchTab = switchTab;
+
+    console.log('Fonctions du modal exposées au contexte global:', {
+        showCompetenceDetail: typeof window.showCompetenceDetail,
+        closeCompetenceDetail: typeof window.closeCompetenceDetail,
+        switchTab: typeof window.switchTab
+    });
 }

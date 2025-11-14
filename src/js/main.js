@@ -8,13 +8,24 @@ import { initModal } from './modal.js';
 import { initAnimations } from './animations.js';
 
 /**
- * Initialisation au chargement de la page
+ * Fonction d'initialisation
  */
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
     console.log('Portfolio chargé avec succès');
 
     // Initialise tous les modules
     initNavigation();
     initModal();
     initAnimations();
-});
+}
+
+/**
+ * Initialisation au chargement de la page
+ * Vérifie si le DOM est déjà chargé ou attend l'événement
+ */
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    // Le DOM est déjà chargé, on initialise immédiatement
+    init();
+}
